@@ -26,7 +26,7 @@ createApp({
     getData() {
       const url = `${this.apiUrl}/api/${this.apiPath}/admin/products`;
       axios.get(url)
-        .then((response) => {
+        .then((res) => {
           this.products = response.data.products;
         })
         .catch((err) => {
@@ -41,7 +41,7 @@ createApp({
   mounted() {
     // 取出 Token
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-    axios.defaults.headers.common.Authorization = token;
+    axios.defaults.headers.common['Authorization'] = token;
 
     this.checkAdmin()
   }
