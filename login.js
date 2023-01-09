@@ -16,7 +16,7 @@ createApp({
             .then((res)=>{
                 const { token, expired } = res.data;
         document.cookie = `hexToken=${token}; expires=${new Date(expired)};`; //載入cookie
-        window.location = 'products.html'; // 跳轉產品頁面
+        window.location = './products.html'; // 跳轉產品頁面
         }) 
             .catch((err) => { //登入失敗
             alert(err.response.data.message);
