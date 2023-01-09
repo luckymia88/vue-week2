@@ -12,7 +12,7 @@ createApp({
   methods: {
     //是否登入
     checkAdmin() {
-      const url = `${this.apiUrl}/api/${this.apiPath}/check`;
+      const url = `${this.apiUrl}/api/user/check`;
       axios.post(url)
         .then((res) => {
           this.getData();
