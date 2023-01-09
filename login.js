@@ -12,7 +12,7 @@ createApp({
     methods: {
         login () {
         const api = 'https://vue3-course-api.hexschool.io/v2/api/user/check';
-            axios.post(api,this.user)
+            axios.post(api,user)
             .then((res)=>{
                 const { token, expired } = res.data;
         document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
