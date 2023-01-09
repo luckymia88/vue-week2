@@ -13,7 +13,7 @@ createApp({
     //是否登入
     checkAdmin() {
       const url = `${this.apiUrl}/api/user/check`;
-      axios.post(url)
+      axios.post(url,apiPath)
         .then((res) => {
           this.getData();
         })
@@ -25,7 +25,7 @@ createApp({
     //渲染產品至畫面上
     getData() {
       const url = `${this.apiUrl}/api/${this.apiPath}/admin/products`;
-      axios.get(url)
+      axios.get(url,apiPath)
         .then((res) => {
           this.products = response.data.products;
         })
