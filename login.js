@@ -14,6 +14,7 @@ createApp({
         const api = 'https://vue3-course-api.hexschool.io/v2/admin/signin';
             axios.post(api, this.user) //登入成功
             .then((res)=>{
+                console.log(res);
                 const { token, expired } = res.data;
         document.cookie = `hexToken=${token}; expires=${new Date(expired)};`; //載入cookie
         window.location = 'products.html'; // 跳轉產品頁面
