@@ -14,7 +14,7 @@ createApp({
     checkAdmin() {
       const url = `${this.apiUrl}/api/user/check`;
       axios.post(url)
-        .then(() => {
+        .then((res) => {
           this.getData();
         })
         .catch((err) => {
