@@ -13,18 +13,18 @@ createApp({
     //是否登入
     checkAdmin() {
       const url = `${this.apiUrl}/api/user/check`;
-      axios.post(url)
-        .then((res) => {
-          this.getData();
+      axios.post(url) //若為登入狀態會執行getdata
+        .then(() => {
+          this.getData(); 
         })
-        .catch((err) => {
+        .catch((err) => {  //沒有登入就進入產品頁面，之後會自動跳回登入畫面
           alert(err.response.data.message)
           window.location = 'login.html';
         })
     },
     //渲染產品至畫面上
     getData() {
-      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products`;
+      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products/all`;
       axios.get(url)
         .then((res) => {
           this.products = response.data.products;
@@ -41,7 +41,7 @@ createApp({
   mounted() {
     // 取出 Token
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-    axios.defaults.headers.common['Authorization'] = token;
+    axios.defaults.headers.common.Authorization = token;
 
     this.checkAdmin()
   }
