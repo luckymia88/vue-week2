@@ -18,7 +18,7 @@ createApp({
           this.getData(); 
         })
         .catch((err) => {  //沒有登入就進入產品頁面，之後會自動跳回登入畫面
-          alert(err.response.data.message)
+          alert(err.data.message)
           window.location = 'login.html';
         })
     },
@@ -30,7 +30,7 @@ createApp({
           this.products = response.data.products;
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          alert(err.data.message);
         })
     },
     //點擊 顯示到右邊
